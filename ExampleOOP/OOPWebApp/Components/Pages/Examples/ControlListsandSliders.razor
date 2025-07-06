@@ -1,0 +1,48 @@
+﻿<h3>Control Lists and Sliders</h3>
+<label for="MyOptionSelect" class="form-label">My Options</label>
+<select class="form-select" id="MyOptionSelect">
+    <option>Select a value...</option>
+    @foreach(var item in _myOptions)
+    {
+        <option>@item</option>
+    }
+</select>
+<br/>
+<label class="form-label">
+    Select favourite Vacation Spot
+    <input type="text" @bind="vacationSpot"
+        list="VacationChoices"
+            class="form-control" />
+    <datalist id="VacationChoices">
+        @foreach(var item in VacationSpotList)
+        {
+            <option value="@item" />
+        }
+    </datalist>
+</label>
+<br/>
+@*Range Example
+    Remember to have type=range and class=form-range
+    Typically used with numerical values
+*@
+<label for="MyRange" class="form-label">Range Test</label>
+<input type="range" class="form-range" id="MyRange" @bind="rangeValue" min="0" max="12" steps="1"/>
+
+
+
+
+@code {
+    private List<string> _myOptions = ["one", "two", "three"];
+    private string vacationSpot;
+    public List<string> VacationSpotList = new();
+    private int rangeValue = 5;
+
+    protected override void OnInitialized()
+    {
+        VacationSpotList.Add("California");
+        VacationSpotList.Add("Europe");
+        VacationSpotList.Add("Montreal");
+        VacationSpotList.Add("Mexico");
+
+    }
+}

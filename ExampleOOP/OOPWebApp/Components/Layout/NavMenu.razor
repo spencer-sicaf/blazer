@@ -1,0 +1,51 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">
+            <img src="./img/WestWindLogo.png" alt="Logo"
+                 style="width:40px; height:40px;"
+                 title="Go to home" /> &nbsp;&nbsp;
+            Example OOP
+        </a>
+    </div>
+</div>
+
+<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="bi bi-house-door-fill" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="dataentry">
+                <span class="bi bi-plus-square-fill" aria-hidden="true"></span> Data Entry
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="employmentreport">
+                <span class="bi bi-menu-button-fill" aria-hidden="true"></span> Report
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="weather">
+                <i class="bi bi-umbrella"></i> Weather
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="basicevents">
+                <span class="bi bi-menu-button-fill" aria-hidden="true"></span> Button Examples
+            </NavLink>
+        </div>
+         <div class="nav-item px-3">
+            <NavLink class="nav-link" href="input-examples">
+                <span class="bi bi-menu-button-fill" aria-hidden="true"></span> Input Examples
+            </NavLink>
+        </div>
+    </nav>
+</div>
+

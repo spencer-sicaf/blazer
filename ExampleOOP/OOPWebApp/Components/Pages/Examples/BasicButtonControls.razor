@@ -1,0 +1,70 @@
+﻿@page "/basicevents"
+<!--
+    the page directive MUST be the first PHYSICAL line in the razor file
+    it has the routing identifier string used by the Routes.razor component
+        to find the page. It is also what is used in href tags to identify
+        which page to navigate to on the site.
+-->
+<!--
+    the next line was introduced in .Net 8 core for Blazor Web Apps
+    this line indicate the interactivity of the rendering mode
+    We NEED it to make the buttons work on the page
+-->
+@rendermode InteractiveServer
+
+<PageTitle>Basic Buttons</PageTitle>
+<h3>Basic Button Controls</h3>
+
+<label for="dataItem">
+    <input type="text" placeholder="enter a string"
+        @bind-value="inputValue" />
+</label>
+<button type="submit"
+    class="btn btn-outline-primary"
+    @onclick="OnClickMethod">
+    Click Me
+</button>
+<button type="submit"
+        class="btn btn-outline-danger"
+        @onclick="ClearMethod">
+    Clear Feedback
+</button>
+
+<!--
+    using the "at" symbol will allow you to exit the html world
+    and enter the C# world outside of the C# codeblock
+-->
+@if(!string.IsNullOrWhiteSpace(feedback))
+{
+    //as soon as you use the first html code you return
+    //to using html
+    <br />
+    <p>@feedback</p>
+}
+
+@code {
+    //This is the C# coding block for this component
+
+    //blazor components can have the code in the same physical file
+    //by including the C# code block
+
+    //HOWEVER 
+    //the C# code can also be places in its own physical file
+    //as a partial class that ties back to the razor component.
+    //this secondary file is commonly refered to as the "code-behind"
+
+    //Can you have a C# code block and a code-behind file?
+    //YES, but the C# code block is always read first.
+
+    private string inputValue = string.Empty;
+    private string feedback = string.Empty;
+
+    private void OnClickMethod()
+    {
+        feedback = $"You entered: {inputValue}";
+    }
+    private void ClearMethod()
+    {
+        feedback = string.Empty;
+    }
+}
